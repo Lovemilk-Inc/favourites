@@ -1,0 +1,10 @@
+#!/bin/bash
+workpath="/for/"
+screen_name="bar"
+cmd="command"
+
+echo -e "screen start: $screen_name, $cmd\n"
+
+screen -dmS "$screen_name"
+screen -x -S "$screen_name" -p 0 -X stuff "cd \"$workpath\" && $cmd"
+screen -x -S "$screen_name" -p 0 -X stuff $'\n'
