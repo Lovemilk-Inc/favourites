@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# 已知问题: 同时运行多个如下脚本可能会导致未知的指令无法成功执行, 启动时切勿携带 `&` 符号后台运行
+
 workpath="/for/"
 screen_name="bar"
 cmd="command"

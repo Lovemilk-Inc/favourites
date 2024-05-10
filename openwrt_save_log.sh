@@ -17,7 +17,7 @@ function writeNew() {
     logread >> "$logfile"
 
     # background the logread process
-    logread -f >> "$logfile" &
+    logread -f >> "$logfile" 2>&1 &
 }
 
 writeNew
