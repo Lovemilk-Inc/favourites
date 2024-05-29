@@ -10,7 +10,12 @@ echo -e "screen start: $screen_name, $cmd\n"
 
 screen -dmS "$screen_name"
 
-sleep 1s  # sleep to wait screen start
+while true; do
+    if screen -ls | grep -q "$screen_name"; then
+        break;
+    fi
+done
+# sleep 1s  # sleep to wait screen start
 
 screen -x -S "$screen_name" -p 0 -X stuff "cd \"$workpath\" && $cmd"
 screen -x -S "$screen_name" -p 0 -X stuff $'\n'

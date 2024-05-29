@@ -13,7 +13,7 @@ function writeNew() {
     fulltime=$(date "+%Y%m%d_%H%M%S")
 
     logfile="$log_dir/openwrt_$fulltime.log"
-    echo -e "==== Started logging at $fulltime ====" >> "$logfile"
+    echo -e "==== Started logging at $fulltime ====" > "$logfile"
     logread >> "$logfile"
 
     # background the logread process
