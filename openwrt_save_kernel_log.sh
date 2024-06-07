@@ -24,4 +24,5 @@ while true; do
         echo "$new_kernel_log" >> "$logfile"
         kernel_log="$new_kernel_log"
     fi
+    sleep 0.05
 done
