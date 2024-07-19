@@ -2,6 +2,10 @@
 使用 CDN 加速 Swagger UI
 """
 
+__all__ = (
+    'replace_swagger_ui'
+)
+
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi import applications
 
@@ -17,9 +21,9 @@ def replace_swagger_ui():
 
         return get_swagger_ui_html(  # 以免中国大陆无法获取 js css, 以至无法加载页面
             *args, **kwargs,
-            swagger_js_url="https://cdn.bootcdn.net/ajax/libs/swagger-ui/5.17.3/swagger-ui-bundle.min.js",
-            swagger_css_url="https://cdn.bootcdn.net/ajax/libs/swagger-ui/5.17.3/swagger-ui.min.css")
-
+            swagger_js_url="https://cdn.staticfile.org/swagger-ui/5.6.2/swagger-ui-bundle.min.js",
+            swagger_css_url="https://cdn.staticfile.org/swagger-ui/5.6.2/swagger-ui.min.css"
+        )
 
     # Actual monkey patch
     applications.get_swagger_ui_html = swagger_monkey_patch
